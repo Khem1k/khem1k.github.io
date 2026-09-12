@@ -1,6 +1,6 @@
 {
-  "name": "Секретна програма",
-  "short_name": "Секрет",
+  "name": "Злата",
+  "short_name": "Злата",
   "description": "Романтичний квест",
   "start_url": "/index.html",
   "display": "standalone",
