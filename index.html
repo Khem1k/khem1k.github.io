@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Секретна програма</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+</head>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+<body>
+    <!-- ЕКРАН 1: Привітання -->
+    <div id="screen1" class="screen active">
+        <div class="content">
+            <h1 class="question-text">Привіт ヅ</h1>
+            <input type="text" id="answer1" class="answer-input" placeholder="Введи відповідь...">
+            <button onclick="checkAnswer1()" class="btn">Відповісти</button>
+        </div>
+    </div>
+
+    <!-- ЕКРАН 2: Найкращий друг -->
+    <div id="screen2" class="screen">
+        <button onclick="goBack(1)" class="back-btn">← Назад</button>
+        <div class="content">
+            <h1 class="question-text">Хто твій найкращий друг?</h1>
+            <input type="text" id="answer2" class="answer-input" placeholder="Введи відповідь...">
+            <button onclick="checkAnswer2()" class="btn">Відповісти</button>
+            <p id="hint2" class="hint"></p>
+        </div>
+    </div>
+
+    <!-- ЕКРАН 3: Найкрасивіша дівчина -->
+    <div id="screen3" class="screen">
+        <button onclick="goBack(2)" class="back-btn">← Назад</button>
+        <div class="content">
+            <h1 class="question-text">Do you know who the most<br>beautiful girl in the whole world is?</h1>
+            <p class="hint">Підказка: почни з питального слова 😉</p>
+            <input type="text" id="answer3" class="answer-input" placeholder="Введи відповідь...">
+            <button onclick="checkAnswer3()" class="btn">Відповісти</button>
+        </div>
+    </div>
+
+    <!-- ФІНАЛЬНИЙ ЕКРАН -->
+    <div id="screen4" class="screen">
+        <button onclick="goBack(3)" class="back-btn">← Назад</button>
+        <div class="content">
+            <canvas id="heartCanvas"></canvas>
+            <div id="rotatingPhoto" class="rotating-photo"></div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="music2.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

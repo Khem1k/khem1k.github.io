@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Фони для кожного екрану */
+#screen1 {
+    background-image: url('bg1.jpg');
+}
+
+#screen2 {
+    background-image: url('bg2.jpg');
+}
+
+#screen3 {
+    background-image: url('bg3.jpg');
+}
+
+#screen4 {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.question-text {
+    font-size: clamp(24px, 5vw, 48px);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Brush Script MT', cursive;
+    color: #fff;
+}
+
+.answer-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #FF69B4;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+    color: #000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #FF69B4;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: rgba(51,51,51,0.8);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hint {
+    color: #FFD700;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#heartCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rotating-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: url('photo.png') center/cover;
+    animation: rotate 10s linear infinite;
+    box-shadow: 0 0 30px rgba(255,105,180,0.5);
+    display: none;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Адаптивність */
+@media (max-width: 600px) {
+    .question-text {
+        font-size: 28px;
+    }
+    .answer-input {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
